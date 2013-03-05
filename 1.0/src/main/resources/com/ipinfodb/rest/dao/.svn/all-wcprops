@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/26/branches/1.0/src/main/resources/com/ipinfodb/rest/dao
+END
+sqlmap-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/26/branches/1.0/src/main/resources/com/ipinfodb/rest/dao/sqlmap-config.xml
+END
+country.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/26/branches/1.0/src/main/resources/com/ipinfodb/rest/dao/country.xml
+END
+location.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/26/branches/1.0/src/main/resources/com/ipinfodb/rest/dao/location.xml
+END

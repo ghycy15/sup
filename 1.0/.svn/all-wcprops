@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/30/branches/1.0
+END
+NOTICE
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/26/branches/1.0/NOTICE
+END
+doap_ipinfo.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/30/branches/1.0/doap_ipinfo.rdf
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/26/branches/1.0/LICENSE
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/30/branches/1.0/pom.xml
+END

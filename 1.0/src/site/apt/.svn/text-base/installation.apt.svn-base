@@ -1,0 +1,125 @@
+~~
+~~   Copyright 2009 IP Info DB
+~~
+~~   Licensed under the Apache License, Version 2.0 (the "License");
+~~   you may not use this file except in compliance with the License.
+~~   You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~   Unless required by applicable law or agreed to in writing, software
+~~   distributed under the License is distributed on an "AS IS" BASIS,
+~~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~   See the License for the specific language governing permissions and
+~~   limitations under the License.
+~~
+
+~~author: Simone Tripodi
+~~version: $Id: user-guide.apt 32 2009-05-27 11:57:22Z simone.tripodi $
+                                    ------
+                                    Installation
+                                    ------
+                                    Simone Tripodi
+                                    ------
+                                     2009
+
+Getting Started
+
+  This software works on top of the
+  {{{http://www.ipinfodb.com/ip_database.php}IP address geolocation SQL database}},
+  specifically on the
+  {{{http://mirrors.portafixe.com/ipinfodb/ip_database/current/ipinfodb_mul_table_full.sql.bz2}Complete (City) Multiple Table}}
+  database.
+
+  The main step is configuring your environment in way to install that DB and
+  keep it always up-to-date, in <<</src/main/scripts>>> project dir it's
+  available a simple script <<<install-ipinfo-db.sh>>> that downloads the SQL
+  dump and install it in your MySQL server.
+
+  By the way, it's strongly recommended to use the procedure using <<<rsync>>>
+  that the IP Info DB team suggest on their
+  {{{http://forum.ipinfodb.com/viewtopic.php?f=5&t=176}Forum}}.
+
+Set up
+
+  Before creating the <<<war>>> archive and deploy it in your preferred Servlet
+  Container, just a little bit of configuration has to be completed:
+
+* JDBC Connection
+
+  After installed the DB as described in the main section of this page, just
+  configure the <<<jdbc.properties>>> file contained in <<<src/main/resources>>>
+  dir; it looks like:
+
+----------------------------------------
+JDBC.Host=<your-mysql-host>
+JDBC.Port=<defined-port-or-default-3306>
+JDBC.DB=<ipinfo>
+JDBC.Username=<mysql-username>
+JDBC.Password=<mysql-password>
+----------------------------------------
+
+* Memcached
+
+  In way to optimize reading operations, the software relies on
+  {{{http://www.opensymphony.com/oscache/}OSCahce}} and an optional extention,
+  {{{http://memos2.googlecode.com/svn/site/1.0-beta/index.html}MemOS2}},
+  that allows using {{{http://danga.com/memcached/}Memcached}} as persistence
+  listener.
+
+  To configure the cache, please refeer to the official <<<OSCahce>>>
+  {{{http://www.opensymphony.com/oscache/wiki/Configuration.html}Documentation}}
+  and <<<MemOS2>>>
+  {{{http://memos2.googlecode.com/svn/site/1.0-beta/user-guide.html}Documentation}}.
+
+Deploy
+
+  Once configured, users are now able to deploy the application; feel free to
+  create the war and then deploy it manually in your preferred servlet container,
+  we usually deploy it in Tomcat througth the Maven
+  {{{http://mojo.codehaus.org/tomcat-maven-plugin}Tomcat Plugin}} already
+  declared in the <<<pom.xml>>>.
+
+  Verify in your <<<$CATALINA_HOME/conf/tomcat-users.xml>>> you have valid
+  user's credentials to access to the Manager; in mine, I added something like:
+
+----------------------------------------
+<tomcat-users>
+    <role rolename="tomcat"/>
+    <role rolename="role1"/>
+    <role rolename="manager"/>
+    <role rolename="admin"/>
+    <user username="ipinfodb" password="XXX" roles="admin,manager"/>
+    ...
+</tomcat-users>
+----------------------------------------
+
+  Make sure in your <<<~/.m2/setting.xml>>> there's a <<<server>>> node that
+  contains the Manager credentials; in mine, I've something like this:
+
+----------------------------------------
+<settings xmlns="http://maven.apache.org/POM/4.0.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+     <servers>
+         <server>
+             <id>ipinfo-server</id>
+             <username>XXX</username>
+             <password>XXX</password>
+         </server>
+     </servers>
+
+     ...
+
+</settings>
+----------------------------------------
+
+  You're now able to deploy the sample just using the following command:
+
+----------------------------------------
+mvn -Dserver.id=<server-id-in-your-settings.xml> \
+    -Dtomcat.manager.url=<your-tomcat-manager-url> \
+    tomcat:deploy
+----------------------------------------

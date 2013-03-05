@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain
+END
+Country.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain/Country.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain/package-info.java
+END
+IpRange.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain/IpRange.java
+END
+Location.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain/Location.java
+END
+ServiceError.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/domain/ServiceError.java
+END

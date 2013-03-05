@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AtHome</title>
+<link href="stay.css" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+	
+	
+<div class="container">
+<img src="Logo2(1).png" width="200" height="200" style="float:left"/>
+<div id="tabs">
+  <ul style="float:left; margin-top:65px;">
+    <li><a href="eat.html"><img src="quote1.png" width="100" height="100" /></a></li>
+    <li><a href="play.html"><img src="quote2.png" width="100" height="100"/></a></li>
+    <li><a><img src="quote3.png" width="100" height="100"/></a></li>
+  </ul>
+  
+  
+  <div id="tabs-2">
+  
+ 	<div class="board3">
+  	<div style="height:50px;"></div>
+	<div class="sidebar1">
+    <ul>
+    <img src="logo4-7.png" width="120" height="120" style="margin:0px;float:left;" />
+    <li><a href="#r1"><img src="logo4-1.png" width="120" height="120" style="margin:0px;float:right;" /></a></li>
+    <li><a href="#r2"><img src="logo4-3.png" width="120" height="120" style="margin:0px;float:left;""/></a></li>
+    <img src="logo4-8.png" width="120" height="120" style="margin:0px;float:right;" />
+    <li><a href="#r3"><img src="logo4-4.png" width="120" height="120" style="margin:0px;float:right;" /></a></li>
+    <img src="logo4-9.png" width="120" height="120" style="margin:0px;float:left;" />
+    <img src="logo4-10.png" width="120" height="120" style="margin:0px;float:right;"/>
+    <li><a href="#r4"><img src="logo4-5.png" width="120" height="120" style="margin:0px;float:left;"/></a></li>
+    </ul>
+    </div>
+    <div class="content">
+    <div id="r1">
+    yoooooolo1
+    </div>
+    <div id="r2">
+    yoooooolo2
+    </div>
+    <div id="r3">
+    yoooooolo3
+    </div>
+    <div id="r4">
+    yoooooolo4
+    </div>
+    <img src="test.png" width="500" height="156" style="margin-top:15px;"/>
+    </div>
+	</div>
+  </div>
+ 
+<!-- end .container --></div>
+ 
+<!-- The JavaScript -->
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+  <script type= "text/javascript" src="jquery.flip.js"></script>
+  
+  <script>
+  
+  /*
+  
+    $(function() {
+    
+    $("#imga").mouseenter(function(){
+    	$("#imga").flip({
+    	direction:'tb',
+    	color: "#F7931D",
+    	onAnimation: function(){
+    		 window.location.href='#r2';
+    	}
+     })
+	 
+   });
+   
+   $("#imgb").mouseenter(function(){
+    	$("#imgb").flip({
+    	direction:'tb',
+    	color: "#F7931D",
+    	onAnimation: function(){
+    		 window.location.href='#r2';
+    	}
+     })
+   });
+   
+   $("#imgc").mouseenter(function(){
+    	$("#imgc").flip({
+    	direction:'lr',
+    	content:'hi',
+    	color: "#F7931D",
+    	onEnd: function(){
+    		window.location.href='#r3';
+    	}
+     })
+   });
+   
+   $("#imgd").mouseenter(function(){
+    	$("#imgd").flip({
+    	direction:'bt',
+    	content:'hi',
+    	color: "#F7931D",
+    	onEnd: function(){
+    		window.location.href='#r4';
+    	}
+     })
+   });
+    
+  });
+  
+  */
+ 
+ 
+  $(function() {
+    $( ".board3" ).tabs();
+  });
+
+  
+  </script>
+</body>
+</html>

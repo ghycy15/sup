@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/writers
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/writers/package-info.java
+END
+XMLObjectWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/writers/XMLObjectWriter.java
+END
+AbstractObjectWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/writers/AbstractObjectWriter.java
+END
+JSONObjectWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/writers/JSONObjectWriter.java
+END

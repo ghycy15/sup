@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!--
+    Copyright 2009 IP Info DB
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+    author: Simone Tripodi (simone.tripodi)
+    version: $Id$
+-->
+<sqlMap namespace="country">
+
+    <cacheModel type="OSCACHE" id="country-cache">
+        <flushInterval hours="24"/>
+    </cacheModel>
+
+    <resultMap class="Country" id="CountryResultMap">
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <resultMap class="IpRange" id="IpRangeResultMap">
+        <result property="ipCidr" column="ip_cidr"/>
+        <result property="countryCode" column="country_code"/>
+    </resultMap>
+
+    <select id="selectAllCountries"
+            resultMap="CountryResultMap"
+            cacheModel="country-cache">
+        SELECT
+            code,
+            name
+        FROM
+            iso3166_countries
+    </select>
+
+    <select id="selectIpRangesByCountry"
+            parameterClass="java.util.List"
+            resultMap="IpRangeResultMap"
+            cacheModel="country-cache">
+        SELECT
+            ip_cidr,
+            country_code
+        FROM
+            ip_group_country
+        <dynamic prepend="WHERE">
+            <iterate conjunction="OR">
+                country_code = #[]#
+            </iterate>
+        </dynamic>
+    </select>
+
+</sqlMap>

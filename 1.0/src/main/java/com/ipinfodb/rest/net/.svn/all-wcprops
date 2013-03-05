@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/net
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/net/package-info.java
+END
+IpResolverException.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/net/IpResolverException.java
+END
+IpResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/net/IpResolver.java
+END

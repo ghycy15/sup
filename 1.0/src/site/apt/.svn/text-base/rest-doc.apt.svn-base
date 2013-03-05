@@ -1,0 +1,175 @@
+~~
+~~   Copyright 2009 IP Info DB
+~~
+~~   Licensed under the Apache License, Version 2.0 (the "License");
+~~   you may not use this file except in compliance with the License.
+~~   You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~   Unless required by applicable law or agreed to in writing, software
+~~   distributed under the License is distributed on an "AS IS" BASIS,
+~~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~   See the License for the specific language governing permissions and
+~~   limitations under the License.
+~~
+
+~~author: Simone Tripodi
+~~version: $Id: user-guide.apt 32 2009-05-27 11:57:22Z simone.tripodi $
+                                    ------
+                                    REST APIs Documentation
+                                    ------
+                                    Simone Tripodi
+                                    ------
+                                     2009
+
+Preface
+
+  Services have been realized to support both <XML> and <JSON> responses
+  format, using <XML> by default.
+
+  To specify the desired response format, APIs clients have to use the
+  <<<Accept>>> HTTP Header in the request, admitted content types are:
+
+      * <<<application/xml>>> for <XML>;
+
+      * <<<application/json>>> for <JSON>.
+
+  Any other request type won't served.
+
+Location services
+
+  Services in this section are related to geographical location of an IP address
+  or host.
+
+  Let's explain the services by examples: given the Google IP <<<66.102.9.104>>>
+  clients can easily know the related geographical location by invoking:
+
+----------------------------------------
+http://<host>:<port>/ipinfo/locations/66.102.9.104
+----------------------------------------
+
+  The default <XML> format looks like
+
+----------------------------------------
+<location>
+    <country-code>US</country-code>
+    <country-name>United States</country-name>
+    <region-name>California</region-name>
+    <city>Mountain View</city>
+    <zip-postal-code>94043</zip-postal-code>
+    <latitude>37.4192</latitude>
+    <longitude>-122.057</longitude>
+    <gmt-offset>-8.0</gmt-offset>
+    <dst-offset>-7.0</dst-offset>
+</location>
+----------------------------------------
+
+  The JSON representation of the same dataset instead looks like:
+
+----------------------------------------
+{
+    "countryCode": "US",
+    "countryName": "United States",
+    "regionName": "California",
+    "city": "Mountain View",
+    "zipPostalCode": "94043",
+    "latitude": 37.4192,
+    "longitude": -122.057,
+    "gmtOffset": -8.0,
+    "dstOffset": -7.0
+}
+----------------------------------------
+
+  It's also possible retrieving the location of an already known host,
+  just invoking:
+
+----------------------------------------
+http://<host>:<port>/ipinfo/locations/www.google.com
+----------------------------------------
+
+Country Services
+
+  Services in this section allow retrieve IP ranges by one or more Country ID.
+
+  All Countries IDs availables can be retrieved invoking the service:
+
+----------------------------------------
+http://<host>:<port>/ipinfo/countries/list
+----------------------------------------
+
+  The default <XML> format looks like
+
+----------------------------------------
+<countries>
+    <country>
+        <code>A1</code>
+        <name>Anonymous Proxy</name>
+    </country>
+    <country>
+        <code>A2</code>
+        <name>Satellite Provider</name>
+    </country>
+    <country>
+        <code>AD</code>
+        <name>Andorra</name>
+    </country>
+    ...
+</countries>
+----------------------------------------
+
+  The JSON representation of the same dataset instead looks like:
+
+----------------------------------------
+[
+    {"code":"A1","name":"Anonymous Proxy"},
+    {"code":"A2","name":"Satellite Provider"},
+    {"code":"AD","name":"Andorra"},
+    ...
+]
+----------------------------------------
+
+  Clients can extract Italian IP ranges, for example, sending the <IT>
+  country ID:
+
+----------------------------------------
+http://<host>:<port>/ipinfo/countries/ips?countryCode=IT
+----------------------------------------
+
+  The default <XML> format looks like
+
+----------------------------------------
+<ip-ranges>
+    <ip-range>
+        <country-code>IT</country-code>
+        <ip-cidr>7.57.75.32/27</ip-cidr>
+    </ip-range>
+    <ip-range>
+        <country-code>IT</country-code>
+        <ip-cidr>17.57.247.80/29</ip-cidr>
+    </ip-range>
+    <ip-range>
+        <country-code>IT</country-code>
+        <ip-cidr>17.69.93.0/24</ip-cidr>
+    </ip-range>
+    ...
+</ip-ranges>
+----------------------------------------
+
+  The JSON representation of the same dataset instead looks like:
+
+----------------------------------------
+[
+    {"ipCidr":"7.57.75.32/27","countryCode":"IT"},
+    {"ipCidr":"17.57.247.80/29","countryCode":"IT"},
+    {"ipCidr":"17.69.93.0/24","countryCode":"IT"},
+    ...
+]
+----------------------------------------
+
+  Clients can extract more than one Country IP ranges, like Italian and Spanish,
+  for example, just invoking:
+
+----------------------------------------
+http://<host>:<port>/ipinfo/countries/ips?countryCode=IT&countryCode=ES
+----------------------------------------

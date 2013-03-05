@@ -1,0 +1,43 @@
+10
+
+dir
+91
+https://ipinfo.googlecode.com/svn/branches/1.0/src/main/java/com/ipinfodb/rest
+https://ipinfo.googlecode.com/svn
+
+
+
+2009-07-21T07:18:00.193794Z
+23
+simone.tripodi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+564c6aa4-68a1-11de-a9b1-77b8bb241e6b
+
+setup
+dir
+
+services
+dir
+
+dao
+dir
+
+net
+dir
+
+domain
+dir
+

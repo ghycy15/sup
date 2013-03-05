@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/package-info.java
+END
+CountryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/CountryService.java
+END
+LocationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/26/branches/1.0/src/main/java/com/ipinfodb/rest/services/LocationService.java
+END

@@ -1,0 +1,107 @@
+/*
+ *  Copyright 2009 IP Info DB
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package com.ipinfodb.rest.services.writers;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
+import java.nio.charset.Charset;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.MessageBodyWriter;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+/**
+ * 
+ * @author Simone Tripodi
+ * @version $Id: AbstractObjectWriter.java 2 2009-07-04 14:28:38Z simone.tripodi $
+ */
+abstract class AbstractObjectWriter implements MessageBodyWriter<Object> {
+
+    private static final Charset UTF_8 = Charset.forName("UTF-8");
+
+    private final Log log = LogFactory.getLog(this.getClass());
+
+    public final Log getLog() {
+        return this.log;
+    }
+
+    /**
+     * 
+     *
+     * @param obj
+     * @param type
+     * @param genericType
+     * @param annotations
+     * @param mediaType
+     * @return
+     */
+    public final long getSize(Object obj, Class<?> type, Type genericType,
+            Annotation[] annotations, MediaType mediaType) {
+        return -1;
+    }
+
+    /**
+     * 
+     *
+     * @param type
+     * @param genericType
+     * @param annotations
+     * @param mediaType
+     * @return always true
+     */
+    public final boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
+        return true;
+    }
+
+    /**
+     * 
+     */
+    public final void writeTo(Object obj,
+            Class<?> type,
+            Type genericType,
+            Annotation[] annotations,
+            MediaType mediaType,
+            MultivaluedMap<String, Object> httpHeaders,
+            OutputStream entityStream) throws IOException,
+            WebApplicationException {
+        this.writeTo(obj,
+                type,
+                genericType,
+                annotations,
+                mediaType,
+                httpHeaders,
+                new BufferedWriter(new OutputStreamWriter(entityStream, UTF_8)));
+    }
+
+    protected abstract void writeTo(Object obj,
+            Class<?> type,
+            Type genericType,
+            Annotation[] annotations,
+            MediaType mediaType,
+            MultivaluedMap<String, Object> httpHeaders,
+            Writer entityWriter) throws IOException,
+            WebApplicationException;
+
+}

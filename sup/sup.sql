@@ -1,0 +1,3 @@
+CREATE TABLE Things_todo(TO_DO CHAR(50), COUNT INTEGER, PRIMARY KEY(TO_DO,COUNT));
+
+INSERT INTO  Things_todo(TO_DO, COUNT) VALUES  ('play game', 0);

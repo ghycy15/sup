@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/26/branches/1.0/src/main/resources
+END
+oscache.properties
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/26/branches/1.0/src/main/resources/oscache.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/26/branches/1.0/src/main/resources/log4j.properties
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/26/branches/1.0/src/main/resources/jdbc.properties
+END
